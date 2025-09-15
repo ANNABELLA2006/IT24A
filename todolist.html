@@ -32,6 +32,17 @@
 
         console.log("getTaskText() called: " + input.value);
         return text;
+
+        document.getElementId("tasklist").appendChild (li);
+        console.log("addTaskItem() called ->:", taskText, Date ());
+
+        const deleteBtn = createDeleteButton(li);
+        li.appendChild(deleteBtn);
+
+        const taskSpan = document.createElement("span");
+        taskSpan.textContent = taskText;
+        const editBtn = createEditButton(li, taskSpan);
+        li.appendChild(editBtn);
     }
 
      function addTaskItem(taskText){
@@ -62,6 +73,16 @@
         console.log("handleDeleteClick() called ->", li.textContent.replace("X","").trim(),Date());
         
         }    
+        function createEditButton(li){
+            const editBtn = document.createElement("button");
+            editBtn.textContent = "Edit";
+            editBtn.className = "edit-btn";
+            editBtn.style.marginleft = "8px";
+            editBtn.onclick = () => handleEditClick(li);
+
+            console.log("createEditButton () called =>", taskSpan.textContent);
+            return editBtn;
+        }
     </script>
 </body>
 </html>
