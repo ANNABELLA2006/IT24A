@@ -15,7 +15,12 @@
 
      <style>
         #map {height: 400px;}
+        .popup-image {
+            max-width: 200px;
+            height: auto;
+        }
      </style>
+    
 
 <body>
     <h1>Basic Map</h1>
@@ -30,5 +35,10 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+var marker = L.marker([8.364134417882672, 124.87124919788782]).addTo(map);
+const catImage ="<img src=' https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DrvX8cS-v2XM&psig=AOvVaw1yUxscYdnYp_YU208VxlyO&ust=1761005308261000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCv55C-sZADFQAAAAAdAAAAABAE' class = 'popup-image'>";
+const popupContent = "$'{catImage}<br><b>Hello World!</b><br>This is a popup.'";
+
+marker.bindPopup(popupContent);
 </script>
 </html>
